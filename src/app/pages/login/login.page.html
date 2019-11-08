@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/registration">sign up</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll="false">
+  <form class="login__form" [formGroup]="loginForm" (ngSubmit)="login()">
+    <ion-grid>
+      <ion-row class="login__form__row">
+        <ion-col class="login__form__col">
+          <!-- email -->
+          <ion-item class="login__input_block">
+            <ion-label mode="ios" position="floating">
+              email <span class="login__required_mark">*</span>
+            </ion-label>
+            <ion-input
+              formControlName="email"
+              (ionChange)="handleChangeInput()"
+              (ionBlur)="handleBlurInput()"
+            ></ion-input>
+          </ion-item>
+          <!-- password -->
+          <ion-item class="login__input_block">
+            <ion-label mode="ios" position="floating">
+              Password <span class="login__required_mark">*</span>
+            </ion-label>
+            <ion-input
+              type="password"
+              formControlName="password"
+              (ionChange)="handleChangeInput()"
+              (ionBlur)="handleBlurInput()"
+            ></ion-input>
+          </ion-item>
+          <!-- error message -->
+          <div *ngIf="errMessage" class="login__form__error">
+            {{ errMessage }}
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- submit button -->
+      <ion-row class="login__submit">
+        <ion-col>
+          <ion-button
+            type="submit"
+            expand="block"
+            [disabled]="loginForm.invalid"
+          >
+            Sign in
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>

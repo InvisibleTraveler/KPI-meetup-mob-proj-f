@@ -1,5 +1,7 @@
 {
   "name": "meet-enjoy",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

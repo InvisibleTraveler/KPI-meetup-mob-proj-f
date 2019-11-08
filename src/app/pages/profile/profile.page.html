@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll="false">
+  <ion-grid>
+    <ion-row class="profile__main_row">
+      <ion-col size="4" class="profile__avatar_block">
+        <ion-avatar class="profile__avatar">
+          <img
+            src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+          />
+        </ion-avatar>
+      </ion-col>
+      <ion-col size="8" class="profile__text_block">
+        <h2>username</h2>
+        <p>test@gmail.com</p>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-item class="profile__item_block">
+          <ion-label position="fixed" class="profile__item_name"
+            >first name:
+          </ion-label>
+          <ion-label class="profile__item_data">name</ion-label>
+        </ion-item>
+        <ion-item class="profile__item_block">
+          <ion-label position="fixed" class="profile__item_name"
+            >last name:
+          </ion-label>
+          <ion-label class="profile__item_data">surname</ion-label>
+        </ion-item>
+        <ion-item class="profile__item_block">
+          <ion-label position="fixed" class="profile__item_name"
+            >phone:
+          </ion-label>
+          <ion-label class="profile__item_data">+380995334552</ion-label>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h3>Your lections</h3>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col *ngIf="lections">
+        <app-meeting-short-info
+          *ngFor="let lection of lections"
+          [lection]="lection"
+        ></app-meeting-short-info>
+      </ion-col>
+      <ion-col class="profile__no_data_block" *ngIf="!lections">
+        <p>No lection selected</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

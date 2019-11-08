@@ -1,0 +1,17 @@
+<ion-card class="msi__card">
+  <ion-badge color="primary" class="msi__badge">{{ lection.date }}</ion-badge>
+  <ion-grid class="msi__inner_container">
+    <ion-row class="msi__card__row">
+      <ion-col
+        size="4"
+        class="msi__lection_img"
+        [style.background-image]="'url(' + lection.img + ')'"
+      >
+      </ion-col>
+      <ion-col class="msi__info_block" size="8">
+        <h4>{{ lection.title }}</h4>
+        <p>{{ lection.location }}</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-card>

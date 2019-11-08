@@ -1,0 +1,41 @@
+.profile__main_row {
+  align-items: center;
+}
+
+.profile__avatar {
+  width: 25vw;
+  height: 25vw;
+}
+
+.profile__avatar_block {
+  display: flex;
+  justify-content: center;
+}
+
+.profile__text_block h2 {
+  margin-bottom: 0;
+}
+
+.profile__text_block p {
+  margin-top: 5px;
+  color: #dddddd;
+}
+
+.profile__item_block {
+  --padding-start: 0;
+  --inner-padding-start: 8px;
+  --inner-padding-end: 0;
+}
+
+.profile__item_name {
+  color: #555555;
+}
+
+.profile__item_data {
+  text-align: right;
+}
+
+.profile__no_data_block p {
+  color: #888888;
+  text-align: center;
+}

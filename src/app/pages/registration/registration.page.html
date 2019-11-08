@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Sign up</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/login">sign in</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content forceOverscroll="false">
+  <form
+    class="register__form"
+    [formGroup]="registerForm"
+    (ngSubmit)="registration()"
+  >
+    <ion-grid>
+      <ion-row class="register__form__row">
+        <ion-col class="register__form__col">
+          <!-- email -->
+          <ion-item class="register__input_block">
+            <ion-label mode="ios" position="floating">
+              email <span class="register__required_mark">*</span>
+            </ion-label>
+            <ion-input
+              formControlName="email"
+              (ionChange)="handleChangeInput()"
+              (ionBlur)="handleBlurInput()"
+            ></ion-input>
+          </ion-item>
+          <!-- password -->
+          <ion-item class="register__input_block">
+            <ion-label mode="ios" position="floating">
+              Password <span class="register__required_mark">*</span>
+            </ion-label>
+            <ion-input
+              type="password"
+              formControlName="password"
+              (ionChange)="handleChangeInput()"
+              (ionBlur)="handleBlurInput()"
+            ></ion-input>
+          </ion-item>
+          <!-- repeat password -->
+          <ion-item class="register__input_block">
+            <ion-label mode="ios" position="floating">
+              Repeat password <span class="register__required_mark">*</span>
+            </ion-label>
+            <ion-input
+              type="password"
+              formControlName="repeatPass"
+              (ionChange)="handleChangeInput()"
+              (ionBlur)="handleBlurInput()"
+            ></ion-input>
+          </ion-item>
+          <!-- error message -->
+          <div *ngIf="errMessage" class="register__form__error">
+            {{ errMessage }}
+          </div>
+        </ion-col>
+      </ion-row>
+      <!-- submit button -->
+      <ion-row class="register__submit">
+        <ion-col>
+          <ion-button
+            type="submit"
+            expand="block"
+            [disabled]="
+              registerForm.invalid ||
+              registerForm.value.password !== registerForm.value.repeatPass
+            "
+          >
+            Sign up
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+</ion-content>
